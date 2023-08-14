@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoContactApp.Views.AddContactPage"
+             xmlns:viewmodel="clr-namespace:DemoContactApp.ViewModels"
+             x:DataType="viewmodel:AddContactViewModel"
+             xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             Title="Add Contact">
+    
+    <VerticalStackLayout Margin="5" Padding="5" Spacing="10">
+        <inputLayout:SfTextInputLayout Hint="Fullname">
+            <Entry Text="{Binding ContactModel.Name}" />
+        </inputLayout:SfTextInputLayout>
+
+        <inputLayout:SfTextInputLayout Hint="Phone Number">
+            <Entry Text="{Binding ContactModel.PhoneNumber}"/>
+        </inputLayout:SfTextInputLayout>
+
+        <Button Text="Add Contact" Command="{Binding AddContactMethodCommand}"></Button>
+    </VerticalStackLayout>
+</ContentPage>

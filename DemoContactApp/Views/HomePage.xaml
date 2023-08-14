@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoContactApp.Views.HomePage"
+             xmlns:viewmodel="clr-namespace:DemoContactApp.ViewModels"
+             x:DataType="viewmodel:HomePageViewModel"
+             xmlns:models="clr-namespace:DemoContactApp.Models"
+             Title="My Contacts">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Contact" Command="{Binding AddContactCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="*">
+        <CollectionView ItemsSource="{Binding  MyGroupContacts}" IsGrouped="True">
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate x:DataType="models:Contact">
+                    <Label FontAttributes="Bold" FontSize="18" TextColor="Blue" Text="{Binding Name}" Margin="10"></Label>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Contact">
+                    <Frame BorderColor="#eee" Margin="0,5,0,0">
+                        <Label Text="{Binding Name}"></Label>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
